@@ -1,0 +1,8 @@
+/src
+/.vs
+/.idea
+/dist/test
+jest.config.js
+.eslintignore
+.eslintrc.json
+test.csv
