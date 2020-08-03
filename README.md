@@ -1,5 +1,7 @@
 # ts-mem-trace
 
+git repo: https://github.com/Lu9us/ts-mem-trace
+
 ts-mem-trace is a node module designed to provide tracing and export of nodes memory use
 during the execution of a program. 
 

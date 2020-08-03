@@ -1,6 +1,6 @@
 {
   "name": "ts-mem-trace",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Memory Tracing for node and Typescript",
   "main": "./dist/MemTrace.js",
   "scripts": {
