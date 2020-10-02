@@ -17,5 +17,7 @@ test('test tracing', () => {
     console.debug(`record 2:${exportedTraces[1].heapUsed}`);
     console.debug(`Memory change: ${JSON.stringify(exportedTraces[4].heapUsed - exportedTraces[0].heapUsed)}`);
   }
-  exportTraceToCSV('test.csv');
+  exportTraceToCSV('test-reports/test.csv', {
+    makeDirectories: true
+  });
 });

@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import os from 'os';
 import memoryUse = NodeJS.MemoryUsage;
 
@@ -168,8 +169,18 @@ export function exportTrace(): ExportMemoryRecord[] | undefined {
   return undefined;
 }
 
-export function exportTraceToCSV(fileName: string) {
+export interface CsvExportOptions {
+  makeDirectories?: boolean
+}
+
+export function exportTraceToCSV(fileName: string, options?: CsvExportOptions) {
   if (tracer !== undefined) {
+    const dir = path.dirname(fileName);
+
+    if (options?.makeDirectories && !fs.existsSync(dir)) {
+      fs.mkdirSync(dir);
+    }
+
     const result = tracer.exportTracesAsCSVText();
     fs.writeFileSync(fileName, result);
   }
