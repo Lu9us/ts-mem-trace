@@ -10,8 +10,11 @@ const traceKey = hash(Date.now());
 export enum TraceMemoryUnit {
   Byte,
   KiloByte,
+  KibiByte,
   MegaByte,
+  MebiByte,
   GigaByte,
+  GibiByte,
 }
 
 export interface ExportMemoryRecord {
@@ -64,10 +67,16 @@ class MemTracer {
   convertMemValueToUnit(memoryValue: number) {
     switch (this.traceMemoryUnit) {
       case TraceMemoryUnit.KiloByte:
+        return memoryValue / 1000;
+      case TraceMemoryUnit.KibiByte:
         return memoryValue / 1024;
       case TraceMemoryUnit.MegaByte:
+        return memoryValue / 1000 / 1000;
+      case TraceMemoryUnit.MebiByte:
         return memoryValue / 1024 / 1024;
       case TraceMemoryUnit.GigaByte:
+        return memoryValue / 1000 / 1000 / 1000;
+      case TraceMemoryUnit.GibiByte:
         return memoryValue / 1024 / 1024 / 1024;
       case TraceMemoryUnit.Byte:
       default:
